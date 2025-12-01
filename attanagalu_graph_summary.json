@@ -1,0 +1,15 @@
+{
+  "total_nodes": 956,
+  "total_edges": 658,
+  "connected_components": 298,
+  "main_component_size": 36,
+  "main_component_percentage": 3.7656903765690375,
+  "snap_threshold_degrees": 0.001,
+  "edge_types": {
+    "canal": 173,
+    "stream": 90,
+    "river": 33,
+    "drain": 81,
+    "ditch": 281
+  }
+}

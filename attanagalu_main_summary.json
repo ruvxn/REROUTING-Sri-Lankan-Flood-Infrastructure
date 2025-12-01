@@ -1,0 +1,19 @@
+{
+  "total_nodes": 36,
+  "total_edges": 35,
+  "is_connected": true,
+  "average_degree": 1.9444444444444444,
+  "edge_types": {
+    "ditch": 31,
+    "drain": 3,
+    "stream": 1
+  },
+  "outlet_node": 342,
+  "source_node": 574,
+  "bounds": {
+    "min_lon": 79.9555917,
+    "max_lon": 80.0073974,
+    "min_lat": 7.0816367499999995,
+    "max_lat": 7.10917065
+  }
+}
