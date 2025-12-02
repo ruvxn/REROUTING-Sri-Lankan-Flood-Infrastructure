@@ -112,3 +112,4 @@ m.get_root().html.add_child(folium.Element(legend_html))
 output_file = "attanagalu_waterways_map.html"
 m.save(output_file)
 print(f"\nMap saved to: {output_file}")
+

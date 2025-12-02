@@ -1,0 +1,761 @@
+{
+  "solutions": [
+    {
+      "rank": 1,
+      "start_node": 444,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        444,
+        185,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 142.1249063282694,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.467619253182221,
+        "cost_usd_m": 2.338096265911105,
+        "relief_vol": 466.63461538461536,
+        "roi": 199.5788720028506
+      },
+      "proposed_canals": [
+        {
+          "from_node": 185,
+          "to_node": 442,
+          "from_coord": [
+            79.98029423333334,
+            7.0966213
+          ],
+          "to_coord": [
+            79.97654546666666,
+            7.0985826
+          ],
+          "distance_km": 0.467619253182221
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "start_node": 574,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        574,
+        573,
+        314,
+        12,
+        13,
+        642,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 95.67004438250052,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.3116921812188463,
+        "cost_usd_m": 1.5584609060942314,
+        "relief_vol": 646.6346153846154,
+        "roi": 414.9187270954341
+      },
+      "proposed_canals": [
+        {
+          "from_node": 642,
+          "to_node": 442,
+          "from_coord": [
+            79.9786627,
+            7.1004382
+          ],
+          "to_coord": [
+            79.97654546666666,
+            7.0985826
+          ],
+          "distance_km": 0.3116921812188463
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "start_node": 343,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 4,
+      "start_node": 644,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        644,
+        645,
+        947,
+        441,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 2.020155912346489,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0.0,
+        "relief_vol": 569.1346153846154,
+        "roi": Infinity
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 5,
+      "start_node": 477,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        477,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 1.666416823986577,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0.0,
+        "relief_vol": 396.63461538461536,
+        "roi": Infinity
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 6,
+      "start_node": 460,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 7,
+      "start_node": 216,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 8,
+      "start_node": 128,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        128,
+        102,
+        104,
+        34,
+        98,
+        428,
+        506,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 199.8422445127463,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.6589217932613377,
+        "cost_usd_m": 3.2946089663066886,
+        "relief_vol": 676.6346153846154,
+        "roi": 205.37630483751582
+      },
+      "proposed_canals": [
+        {
+          "from_node": 34,
+          "to_node": 98,
+          "from_coord": [
+            79.9974146,
+            7.0963553
+          ],
+          "to_coord": [
+            79.99675445,
+            7.0977079
+          ],
+          "distance_km": 0.16711352651215022
+        },
+        {
+          "from_node": 428,
+          "to_node": 506,
+          "from_coord": [
+            79.99458,
+            7.095224
+          ],
+          "to_coord": [
+            79.99047282499998,
+            7.096941825
+          ],
+          "distance_km": 0.4918082667491875
+        }
+      ]
+    },
+    {
+      "rank": 9,
+      "start_node": 106,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 10,
+      "start_node": 206,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        206,
+        134,
+        133,
+        14,
+        15,
+        893,
+        506,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 132.7233679223272,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.432247287637368,
+        "cost_usd_m": 2.1612364381868403,
+        "relief_vol": 730.270979020979,
+        "roi": 337.89499664073617
+      },
+      "proposed_canals": [
+        {
+          "from_node": 133,
+          "to_node": 14,
+          "from_coord": [
+            80.0134157,
+            7.1097751
+          ],
+          "to_coord": [
+            80.01200153333333,
+            7.113400266666666
+          ],
+          "distance_km": 0.432247287637368
+        }
+      ]
+    },
+    {
+      "rank": 11,
+      "start_node": 399,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        399,
+        400,
+        416,
+        415,
+        575,
+        156,
+        158,
+        136,
+        135,
+        140,
+        14,
+        15,
+        893,
+        506,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 264.325560332886,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.8698739194794378,
+        "cost_usd_m": 4.349369597397189,
+        "relief_vol": 950.270979020979,
+        "roi": 218.4847614674213
+      },
+      "proposed_canals": [
+        {
+          "from_node": 575,
+          "to_node": 156,
+          "from_coord": [
+            80.02270405,
+            7.10737915
+          ],
+          "to_coord": [
+            80.02130464999999,
+            7.1067914000000005
+          ],
+          "distance_km": 0.167671961117615
+        },
+        {
+          "from_node": 156,
+          "to_node": 158,
+          "from_coord": [
+            80.02130464999999,
+            7.1067914000000005
+          ],
+          "to_coord": [
+            80.0228525,
+            7.108562
+          ],
+          "distance_km": 0.2606372831754006
+        },
+        {
+          "from_node": 140,
+          "to_node": 14,
+          "from_coord": [
+            80.0159821,
+            7.1129909
+          ],
+          "to_coord": [
+            80.01200153333333,
+            7.113400266666666
+          ],
+          "distance_km": 0.44156467518642223
+        }
+      ]
+    },
+    {
+      "rank": 12,
+      "start_node": 345,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        345,
+        159,
+        158,
+        136,
+        135,
+        140,
+        14,
+        15,
+        893,
+        506,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 135.67419842425355,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.44156467518642223,
+        "cost_usd_m": 2.207823375932111,
+        "relief_vol": 850.270979020979,
+        "roi": 385.1173007270144
+      },
+      "proposed_canals": [
+        {
+          "from_node": 140,
+          "to_node": 14,
+          "from_coord": [
+            80.0159821,
+            7.1129909
+          ],
+          "to_coord": [
+            80.01200153333333,
+            7.113400266666666
+          ],
+          "distance_km": 0.44156467518642223
+        }
+      ]
+    },
+    {
+      "rank": 13,
+      "start_node": 397,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        397,
+        164,
+        158,
+        136,
+        135,
+        140,
+        14,
+        15,
+        893,
+        506,
+        442,
+        478,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 249.2644339672154,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.8203590564470679,
+        "cost_usd_m": 4.101795282235339,
+        "relief_vol": 800.270979020979,
+        "roi": 195.10261335735373
+      },
+      "proposed_canals": [
+        {
+          "from_node": 164,
+          "to_node": 158,
+          "from_coord": [
+            80.02515136666666,
+            7.106032
+          ],
+          "to_coord": [
+            80.0228525,
+            7.108562
+          ],
+          "distance_km": 0.37879438126064563
+        },
+        {
+          "from_node": 140,
+          "to_node": 14,
+          "from_coord": [
+            80.0159821,
+            7.1129909
+          ],
+          "to_coord": [
+            80.01200153333333,
+            7.113400266666666
+          ],
+          "distance_km": 0.44156467518642223
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "start_node": 175,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": true,
+      "path": [
+        175,
+        714,
+        842,
+        605,
+        894,
+        207,
+        208
+      ],
+      "cost": 176.95366242965324,
+      "reached_goal": 208,
+      "metrics": {
+        "new_length_km": 0.5854288592920944,
+        "cost_usd_m": 2.9271442964604724,
+        "relief_vol": 146.6346153846154,
+        "roi": 50.09476832485751
+      },
+      "proposed_canals": [
+        {
+          "from_node": 175,
+          "to_node": 714,
+          "from_coord": [
+            79.9311499,
+            7.1104113
+          ],
+          "to_coord": [
+            79.9334865,
+            7.1107061
+          ],
+          "distance_km": 0.25989539568801884
+        },
+        {
+          "from_node": 714,
+          "to_node": 842,
+          "from_coord": [
+            79.9334865,
+            7.1107061
+          ],
+          "to_coord": [
+            79.9361318,
+            7.1094098
+          ],
+          "distance_km": 0.32553346360407565
+        }
+      ]
+    },
+    {
+      "rank": 15,
+      "start_node": 228,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 16,
+      "start_node": 257,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 17,
+      "start_node": 324,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 18,
+      "start_node": 937,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 19,
+      "start_node": 385,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    },
+    {
+      "rank": 20,
+      "start_node": 368,
+      "goal_nodes": [
+        0,
+        208,
+        866,
+        862,
+        870
+      ],
+      "path_found": false,
+      "path": [],
+      "cost": 0,
+      "reached_goal": null,
+      "metrics": {
+        "new_length_km": 0,
+        "cost_usd_m": 0,
+        "relief_vol": 0,
+        "roi": 0
+      },
+      "proposed_canals": []
+    }
+  ]
+}
