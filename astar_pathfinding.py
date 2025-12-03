@@ -29,7 +29,7 @@ FLOOD_TRAVERSAL_COST_MULTIPLIER = 0.1  # Low cost to encourage using flooded edg
 MAX_NEW_EDGE_DISTANCE_KM = 0.5     # Maximum length for proposed new canals
 
 # Economic Constants
-COST_PER_KM_USD_MILLIONS = 5.0     # $5M per km of new canal
+COST_PER_KM_LKR_MILLIONS = 800.0     # 800 Million LKR per km of new canal
 
 
 def haversine_distance_km(coord1, coord2):
@@ -328,7 +328,7 @@ for i, fe in enumerate(selected_flood_points):
         
         # Calculate Economic Metrics
         new_canal_length_km = sum(e['distance_km'] for e in new_e)
-        estimated_cost_usd_m = new_canal_length_km * COST_PER_KM_USD_MILLIONS
+        estimated_cost_lkr_m = new_canal_length_km * COST_PER_KM_LKR_MILLIONS
         
         # Calculate Flood Relief (sum of overflow on the path)
         # We need to look up the overflow for each edge in the path
@@ -341,7 +341,7 @@ for i, fe in enumerate(selected_flood_points):
                     flood_relief_volume += fe['overflow']
                     break
         
-        roi = flood_relief_volume / estimated_cost_usd_m if estimated_cost_usd_m > 0 else float('inf')
+        roi = flood_relief_volume / estimated_cost_lkr_m if estimated_cost_lkr_m > 0 else float('inf')
 
         solutions.append({
             'rank': i + 1,
@@ -353,7 +353,7 @@ for i, fe in enumerate(selected_flood_points):
             'reached_goal': reached_goal,
             'metrics': {
                 'new_length_km': new_canal_length_km,
-                'cost_usd_m': estimated_cost_usd_m,
+                'cost_lkr_m': estimated_cost_lkr_m,
                 'relief_vol': flood_relief_volume,
                 'roi': roi
             },
@@ -380,7 +380,7 @@ for i, fe in enumerate(selected_flood_points):
             'reached_goal': None,
             'metrics': {
                 'new_length_km': 0,
-                'cost_usd_m': 0,
+                'cost_lkr_m': 0,
                 'relief_vol': 0,
                 'roi': 0
             },
@@ -406,35 +406,46 @@ print("\nGenerating Design Report...")
 successful_solutions = [s for s in solutions if s['path_found']]
 successful_solutions.sort(key=lambda x: x['metrics']['roi'], reverse=True)
 
-total_investment = sum(s['metrics']['cost_usd_m'] for s in successful_solutions)
+total_investment = sum(s['metrics']['cost_lkr_m'] for s in successful_solutions)
 total_relief = sum(s['metrics']['relief_vol'] for s in successful_solutions)
 total_new_km = sum(s['metrics']['new_length_km'] for s in successful_solutions)
+
+# Read storm intensity from simulation results if available, else default
+try:
+    with open("flood_simulation_results.json", "r") as f:
+        sim_data = json.load(f)
+        # Assuming we might add intensity to results later, for now just use a placeholder or read args if possible
+        # But simpler to just say "Current Simulation"
+        scenario_desc = "Current Simulation"
+except:
+    scenario_desc = "Design Storm"
 
 report_content = f"""# Flood Infrastructure Design Report
 
 **Status**: DRAFT PROPOSAL
-**Scenario**: Design Storm (Intensity 100)
+**Scenario**: {scenario_desc}
+**Currency**: Sri Lankan Rupees (LKR)
 
 ## Executive Summary
 
 This report proposes a comprehensive drainage infrastructure plan to mitigate critical flooding in the Attanagalu Oya basin. The plan identifies **{len(successful_solutions)} strategic drainage arteries** that connect major flood zones to western outlets.
 
-*   **Total Investment Required**: ${total_investment:.2f} Million USD
+*   **Total Investment Required**: {total_investment:,.2f} Million LKR
 *   **Total New Canal Construction**: {total_new_km:.2f} km
 *   **Total Flood Relief Volume**: {total_relief:,.0f} units
 *   **Coverage**: {len(successful_solutions)} Critical Flood Zones addressed
 
 ## Prioritized Project List
 
-Projects are ranked by ROI (Flood Relief per Million USD).
+Projects are ranked by ROI (Flood Relief per Million LKR).
 
 """
 
 for i, sol in enumerate(successful_solutions, 1):
     m = sol['metrics']
     report_content += f"""### {i}. Project Zone #{sol['rank']} (Node {sol['start_node']} -> Node {sol['reached_goal']})
-*   **ROI**: {m['roi']:.1f} units/$M
-*   **Estimated Cost**: ${m['cost_usd_m']:.2f} Million
+*   **ROI**: {m['roi']:.2f} units/Million LKR
+*   **Estimated Cost**: {m['cost_lkr_m']:,.2f} Million LKR
 *   **Flood Relief**: {m['relief_vol']:.0f} units
 *   **New Construction**: {m['new_length_km']:.2f} km
 *   **Description**: Creates a drainage artery from the flood zone at Node {sol['start_node']} to the outlet at Node {sol['reached_goal']}.
@@ -452,9 +463,79 @@ report_content += """
 3.  **Stakeholder Review**: Present this prioritized list to local authorities.
 """
 
+report_content += f"""
+## Technical Implementation
+
+### 1. Algorithmic Core
+*   **Graph Theory**: The canal network is modeled as a **Directed Graph (DiGraph)** where nodes represent junctions and edges represent canal segments.
+*   **Pathfinding**: We utilize the **A* (A-Star) Search Algorithm** to find optimal drainage routes.
+    *   **Heuristic**: Euclidean distance to the nearest western outlet.
+    *   **Cost Function**: `f(n) = g(n) + h(n)`, where `g(n)` is the traversal cost.
+
+### 2. Strategic Optimization
+*   **Inverted Cost Logic**: To maximize flood relief, we invert the cost for traversing flooded edges.
+    *   **Flooded Edge Cost**: `Length * 0.1` (Incentivizes routing through floods).
+    *   **Normal Edge Cost**: `Length * 1.0`.
+    *   **New Construction Cost**: `Length * 5.0` (Penalizes land acquisition).
+*   **Spatial Diversity**: The algorithm enforces a minimum separation of **{MIN_SEPARATION_KM} km** between selected flood points to ensure a distributed drainage network, avoiding clustered solutions.
+
+### 3. Simulation Engine
+*   **Hydraulic Modeling**: A flow simulation propagates rainfall runoff through the graph. Edges exceeding their capacity (`Q > Q_max`) are flagged as "Flooded".
+*   **Dynamic Scenarios**: The system supports variable `STORM_INTENSITY` inputs (0-500) to test infrastructure resilience under different climate scenarios.
+
+### 4. Technology Stack
+*   **Backend**: Python (NetworkX, Folium, Flask).
+*   **Frontend**: HTML5, CSS3 (Glassmorphism), Vanilla JavaScript.
+*   **Visualization**: Interactive Leaflet maps with AntPath animations.
+"""
+
 with open("design_report.md", "w") as f:
     f.write(report_content)
 
 print("Saved: design_report.md")
-print("COMPLETE!")
 
+# --- GeoJSON Export ---
+geojson_features = []
+
+for sol in solutions:
+    if not sol['path_found']:
+        continue
+
+    path_coords = []
+    path_nodes = sol['path']
+    
+    for node_id in path_nodes:
+        # Assuming G.nodes[node_id] has 'lon' and 'lat'
+        lon = G.nodes[node_id]['lon']
+        lat = G.nodes[node_id]['lat']
+        # GeoJSON uses [lon, lat]
+        path_coords.append([lon, lat])
+        
+    feature = {
+        "type": "Feature",
+        "geometry": {
+            "type": "LineString",
+            "coordinates": path_coords
+        },
+        "properties": {
+            "rank": sol['rank'],
+            "start_node": sol['start_node'],
+            "reached_goal": sol['reached_goal'],
+            "cost_lkr_m": sol['metrics']['cost_lkr_m'],
+            "relief_vol": sol['metrics']['relief_vol'],
+            "roi": sol['metrics']['roi'],
+            "new_length_km": sol['metrics']['new_length_km']
+        }
+    }
+    geojson_features.append(feature)
+    
+geojson_collection = {
+    "type": "FeatureCollection",
+    "features": geojson_features
+}
+
+with open('proposed_network.geojson', 'w') as f:
+    json.dump(geojson_collection, f, indent=2) # Added indent for readability
+
+print("Saved GIS data to proposed_network.geojson")
+print("COMPLETE!")

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flood Infrastructure Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <nav class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-water"></i>
+                <h2>FloodAI</h2>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-target="dashboard-view">
+                    <i class="fa-solid fa-chart-pie"></i> Dashboard
+                </li>
+                <li class="nav-item" data-target="flood-map-view">
+                    <i class="fa-solid fa-cloud-showers-heavy"></i> Flood Simulation
+                </li>
+                <li class="nav-item" data-target="route-map-view">
+                    <i class="fa-solid fa-route"></i> Drainage Plan
+                </li>
+                <li class="nav-item" data-target="report-view">
+                    <i class="fa-solid fa-file-lines"></i> Design Report
+                </li>
+                <li class="nav-item">
+                    <a href="/api/geojson" class="download-link" title="Download for QGIS/ArcGIS">
+                        <i class="fa-solid fa-download"></i> Export GIS Data
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <!-- Dashboard Overview -->
+            <div id="dashboard-view" class="view active">
+                <header>
+                    <h1>Infrastructure Overview</h1>
+                    <p>Strategic Planning System</p>
+                </header>
+
+                <div class="simulation-controls">
+                    <div class="control-group">
+                        <label for="intensity-slider">Storm Intensity: <span id="intensity-value">100</span></label>
+                        <input type="range" id="intensity-slider" min="0" max="500" value="100">
+                    </div>
+                    <button id="run-simulation-btn" class="btn-primary">
+                        <i class="fa-solid fa-play"></i> Run Simulation
+                    </button>
+                </div>
+
+                <div class="terminal-window" id="terminal-window" style="display: none;">
+                    <div class="terminal-header">
+                        <span class="terminal-dot red"></span>
+                        <span class="terminal-dot yellow"></span>
+                        <span class="terminal-dot green"></span>
+                        <span class="terminal-title">System Logs</span>
+                    </div>
+                    <div class="terminal-content" id="terminal-content">
+                        <div class="log-line">Ready to run simulation...</div>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Design Storm</h3>
+                        <p class="value">Intensity 100</p>
+                        <span class="label">Scenario</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box"><i class="fa-solid fa-check-double"></i></div>
+                        <h3>Projects</h3>
+                        <p class="value">10</p>
+                        <span class="label">Viable Arteries</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box"><i class="fa-solid fa-money-bill-wave"></i></div>
+                        <h3>Investment</h3>
+                        <p class="value">$23M</p>
+                        <span class="label">Estimated Cost</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="icon-box"><i class="fa-solid fa-ruler-combined"></i></div>
+                        <h3>Construction</h3>
+                        <p class="value">4.59 km</p>
+                        <span class="label">New Canals</span>
+                    </div>
+                </div>
+
+                <div class="maps-grid">
+                    <div class="map-card">
+                        <div class="card-header">
+                            <h3>Current Flooding</h3>
+                            <button class="btn-icon"
+                                onclick="document.querySelector('[data-target=flood-map-view]').click()"
+                                title="Full Screen">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="/maps/flood" title="Flood Map Preview"></iframe>
+                        </div>
+                    </div>
+                    <div class="map-card">
+                        <div class="card-header">
+                            <h3>Proposed Solution</h3>
+                            <button class="btn-icon"
+                                onclick="document.querySelector('[data-target=route-map-view]').click()"
+                                title="Full Screen">
+                                <i class="fa-solid fa-expand"></i>
+                            </button>
+                        </div>
+                        <div class="map-container">
+                            <iframe src="/maps/route" title="Route Map Preview"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="report-preview-section">
+                    <div class="card-header">
+                        <h3>Design Report Summary</h3>
+                        <button class="btn-icon" onclick="document.querySelector('[data-target=report-view]').click()"
+                            title="Full Report">
+                            <i class="fa-solid fa-file-contract"></i> View Full Report
+                        </button>
+                    </div>
+                    <div class="report-preview-content markdown-body" id="report-preview-content">
+                        Loading report summary...
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flood Map View -->
+            <div id="flood-map-view" class="view full-height">
+                <iframe src="/maps/flood" title="Flood Map"></iframe>
+            </div>
+
+            <!-- Route Map View -->
+            <div id="route-map-view" class="view full-height">
+                <iframe src="/maps/route" title="Route Map"></iframe>
+            </div>
+
+            <!-- Report View -->
+            <div id="report-view" class="view">
+                <div class="report-container">
+                    <div id="report-content" class="markdown-body">Loading report...</div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="loading-overlay" class="hidden">
+        <div class="spinner"></div>
+        <p>Running Simulation...</p>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+
+</html>

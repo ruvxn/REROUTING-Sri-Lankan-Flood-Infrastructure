@@ -63,7 +63,16 @@ print("\nDefining storm scenario...")
 
 # Storm intensity: how much water enters at each node
 # Higher values = more severe storm
-STORM_INTENSITY = 100
+import argparse
+
+# Parse command line arguments
+parser = argparse.ArgumentParser(description='Run flood simulation.')
+parser.add_argument('--intensity', type=float, default=100.0, help='Storm intensity (default: 100.0)')
+args = parser.parse_args()
+
+# Storm intensity: how much water enters at each node
+# Higher values = more severe storm
+STORM_INTENSITY = args.intensity
 
 def calculate_rainfall(node, is_source):
     """

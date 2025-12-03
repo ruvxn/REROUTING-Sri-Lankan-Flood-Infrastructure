@@ -6,6 +6,8 @@ Shows the proposed route with existing vs new canal segments.
 import pickle
 import json
 import folium
+from folium import plugins
+from folium.plugins import AntPath, BeautifyIcon
 
 # Load data
 print("Loading data...")
@@ -91,31 +93,43 @@ for idx, sol in enumerate(solutions):
             weight = 5
             dash_array = '10, 10'
             edge_type = "PROPOSED NEW CANAL"
+            
+            popup_text = f"""
+            <b>{edge_type}</b><br>
+            From: Node {from_node}<br>
+            To: Node {to_node}
+            """
+            
+            folium.PolyLine(
+                [[lat1, lon1], [lat2, lon2]],
+                color=color,
+                weight=weight,
+                dash_array=dash_array,
+                opacity=0.8,
+                popup=folium.Popup(popup_text, max_width=300)
+            ).add_to(m)
+            
         else:
-            # Existing edge
+            # Existing edge - Use AntPath for flow animation
             color = path_color
             weight = 4
-            dash_array = None
             edge_type = f"Path #{sol['rank']} (Existing)"
-        
-        popup_text = f"""
-        <b>{edge_type}</b><br>
-        From: Node {from_node}<br>
-        To: Node {to_node}
-        """
-        
-        line = folium.PolyLine(
-            [[lat1, lon1], [lat2, lon2]],
-            color=color,
-            weight=weight,
-            opacity=0.9,
-            popup=folium.Popup(popup_text, max_width=300)
-        )
-        
-        if dash_array:
-            line.options['dashArray'] = dash_array
-        
-        line.add_to(m)
+            
+            popup_text = f"""
+            <b>{edge_type}</b><br>
+            From: Node {from_node}<br>
+            To: Node {to_node}
+            """
+            
+            AntPath(
+                locations=[[lat1, lon1], [lat2, lon2]],
+                color=color,
+                weight=weight,
+                opacity=0.8,
+                pulse_color='#FFFFFF',
+                delay=1000,
+                popup=folium.Popup(popup_text, max_width=300)
+            ).add_to(m)
 
     # Add markers
     # Start node

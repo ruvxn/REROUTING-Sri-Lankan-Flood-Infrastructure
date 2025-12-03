@@ -26,9 +26,9 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.467619253182221,
-        "cost_usd_m": 2.338096265911105,
-        "relief_vol": 466.63461538461536,
-        "roi": 199.5788720028506
+        "cost_lkr_m": 374.0954025457768,
+        "relief_vol": 988.0144230769231,
+        "roi": 2.641076090091813
       },
       "proposed_canals": [
         {
@@ -76,9 +76,9 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.3116921812188463,
-        "cost_usd_m": 1.5584609060942314,
-        "relief_vol": 646.6346153846154,
-        "roi": 414.9187270954341
+        "cost_lkr_m": 249.35374497507703,
+        "relief_vol": 1362.264423076923,
+        "roi": 5.463180122733195
       },
       "proposed_canals": [
         {
@@ -112,7 +112,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -146,8 +146,8 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0.0,
-        "relief_vol": 569.1346153846154,
+        "cost_lkr_m": 0.0,
+        "relief_vol": 1215.389423076923,
         "roi": Infinity
       },
       "proposed_canals": []
@@ -176,8 +176,8 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0.0,
-        "relief_vol": 396.63461538461536,
+        "cost_lkr_m": 0.0,
+        "relief_vol": 862.5144230769231,
         "roi": Infinity
       },
       "proposed_canals": []
@@ -198,7 +198,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -220,7 +220,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -257,9 +257,9 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.6589217932613377,
-        "cost_usd_m": 3.2946089663066886,
-        "relief_vol": 676.6346153846154,
-        "roi": 205.37630483751582
+        "cost_lkr_m": 527.1374346090702,
+        "relief_vol": 1420.014423076923,
+        "roi": 2.6938220089226226
       },
       "proposed_canals": [
         {
@@ -306,7 +306,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -339,13 +339,13 @@
         207,
         208
       ],
-      "cost": 132.7233679223272,
+      "cost": 132.0229869864698,
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.432247287637368,
-        "cost_usd_m": 2.1612364381868403,
-        "relief_vol": 730.270979020979,
-        "roi": 337.89499664073617
+        "cost_lkr_m": 345.79783010989445,
+        "relief_vol": 1524.105332167832,
+        "roi": 4.407504036920856
       },
       "proposed_canals": [
         {
@@ -397,13 +397,13 @@
         207,
         208
       ],
-      "cost": 264.325560332886,
+      "cost": 263.6251793970286,
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.8698739194794378,
-        "cost_usd_m": 4.349369597397189,
-        "relief_vol": 950.270979020979,
-        "roi": 218.4847614674213
+        "cost_lkr_m": 695.8991355835502,
+        "relief_vol": 1993.855332167832,
+        "roi": 2.8651498905741177
       },
       "proposed_canals": [
         {
@@ -477,13 +477,13 @@
         207,
         208
       ],
-      "cost": 135.67419842425355,
+      "cost": 134.97381748839612,
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.44156467518642223,
-        "cost_usd_m": 2.207823375932111,
-        "relief_vol": 850.270979020979,
-        "roi": 385.1173007270144
+        "cost_lkr_m": 353.2517401491378,
+        "relief_vol": 1782.855332167832,
+        "roi": 5.046982447744309
       },
       "proposed_canals": [
         {
@@ -531,13 +531,13 @@
         207,
         208
       ],
-      "cost": 249.2644339672154,
+      "cost": 248.564053031358,
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.8203590564470679,
-        "cost_usd_m": 4.101795282235339,
-        "relief_vol": 800.270979020979,
-        "roi": 195.10261335735373
+        "cost_lkr_m": 656.2872451576543,
+        "relief_vol": 1677.355332167832,
+        "roi": 2.555824975335145
       },
       "proposed_canals": [
         {
@@ -592,9 +592,9 @@
       "reached_goal": 208,
       "metrics": {
         "new_length_km": 0.5854288592920944,
-        "cost_usd_m": 2.9271442964604724,
-        "relief_vol": 146.6346153846154,
-        "roi": 50.09476832485751
+        "cost_lkr_m": 468.3430874336755,
+        "relief_vol": 335.0144230769231,
+        "roi": 0.71531838958628
       },
       "proposed_canals": [
         {
@@ -641,7 +641,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -663,7 +663,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -685,7 +685,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -707,7 +707,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -729,7 +729,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
@@ -751,7 +751,7 @@
       "reached_goal": null,
       "metrics": {
         "new_length_km": 0,
-        "cost_usd_m": 0,
+        "cost_lkr_m": 0,
         "relief_vol": 0,
         "roi": 0
       },
